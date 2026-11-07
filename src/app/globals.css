@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+:root {
+  /* Public Website Tokens (Figma 01 — Foundations & Page 08) */
+  --color-navy: #14243b;
+  --color-navy-hover: #253851;
+  --color-gold: #d5ac50;
+  --color-gold-hover: #c39a3e;
+  --color-cream: #f8f7f3;
+  --color-sage: #dde6df;
+  --color-white: #ffffff;
+  --color-slate: #475569;
+  --color-control: #7b8795;
+  --color-line: #dce1e7;
+
+  /* Admin Workspace Tokens (Figma 09 — Admin Foundations & Page 10) */
+  --admin-background: #f8f7f3;
+  --admin-surface: #ffffff;
+  --admin-navy: #14243b;
+  --admin-navhover: #253851;
+  --admin-selected: #e9eff7;
+  --admin-text: #14243b;
+  --admin-muted: #526174;
+  --admin-line: #dce1e7;
+  --admin-control: #7b8795;
+  --admin-gold: #d5ac50;
+
+  /* Semantic Status Tokens */
+  --admin-info: #1e40af;
+  --admin-infobg: #eff6ff;
+  --admin-success: #166534;
+  --admin-successbg: #f0fdf4;
+  --admin-warning: #9a3412;
+  --admin-warningbg: #fff7ed;
+  --admin-danger: #b91c1c;
+  --admin-dangerbg: #fef2f2;
+
+  /* Spacing & Radius Tokens */
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    accent-color: var(--color-navy);
+    scrollbar-color: var(--color-control) var(--color-cream);
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+    font-family: var(--font-manrope), var(--font-bengali), system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: rgba(213, 172, 80, 0.28);
+    color: var(--color-navy);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Targeted typographic wrapping per modern-web-guidance (improve-text-layout-and-legibility) */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p,
+  blockquote,
+  li {
+    text-wrap: pretty;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  /* User-interacted validity styling (avoids flagging empty required inputs on initial load) */
+  input:not([type="range"]):user-invalid,
+  textarea:user-invalid,
+  select:user-invalid {
+    border-color: var(--admin-danger);
+  }
+
+  /* Native <dialog> top-layer & backdrop styling */
+  dialog::backdrop {
+    background-color: rgba(20, 36, 59, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Two-tone accessible focus ring per Figma 01 — Foundations */
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-navy);
+  }
+
+  /* WCAG 2.2 AA 2.5.8 Target Size (Minimum >= 24x24px) for breadcrumb, back-links & inline controls */
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  nav[aria-label="Breadcrumb"] a,
+  td a,
+  th a,
+  a[class*="inline-flex"],
+  button:not([role="switch"]),
+  form a:not([class*="flex"]):not([class*="block"]),
+  main a:not([class*="flex"]):not([class*="block"]):not([class*="grid"]) {
+    min-height: 26px;
+  }
+
+  nav[aria-label="Breadcrumb"] a,
+  td a,
+  th a,
+  form a:not([class*="flex"]):not([class*="block"]),
+  main a:not([class*="flex"]):not([class*="block"]):not([class*="grid"]) {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 20px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Responsive data table wrapper across all devices */
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
