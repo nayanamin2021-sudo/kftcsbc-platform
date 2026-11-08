@@ -277,7 +277,7 @@ export default function CommitteePage() {
                   className="flex flex-col sm:flex-row items-stretch gap-5 rounded-[16px] border border-[#dce1e7] bg-white p-5 sm:p-6 shadow-xs transition-all duration-200 hover:border-[#14243b]/35 hover:shadow-md"
                 >
                   {/* Official Emblem-Watermarked Portrait */}
-                  <div className="relative h-[260px] sm:h-auto sm:w-[210px] shrink-0 overflow-hidden rounded-[12px] border border-[#dce1e7] bg-[#f1f3f5]">
+                  <div className="relative h-[260px] sm:min-h-[230px] sm:w-[210px] shrink-0 overflow-hidden rounded-[12px] border border-[#dce1e7] bg-[#f1f3f5]">
                     {mentor.photoUrl ? (
                       <Image
                         src={mentor.photoUrl}
