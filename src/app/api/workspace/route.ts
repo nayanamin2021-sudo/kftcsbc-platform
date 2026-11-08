@@ -101,7 +101,7 @@ export async function GET() {
     { ok: true, supabaseConnected: isSupabaseAdminConfigured(), db },
     {
       headers: {
-        "Cache-Control": "no-store, max-age=0",
+        "Cache-Control": "public, s-maxage=20, stale-while-revalidate=300",
       },
     }
   );
@@ -112,6 +112,21 @@ export async function POST(req: NextRequest) {
     await ensureSupabaseHydrated();
     const body = await req.json();
     const { type, payload } = body ?? {};
+
+    const isAdminLocked = process.env.NEXT_PUBLIC_ADMIN_UNLOCKED !== "true";
+    if (
+      isAdminLocked &&
+      typeof type === "string" &&
+      (type.startsWith("ADMIN_") || type === "RESET_SEED")
+    ) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Committee Admin Workspace is currently locked by club administration.",
+        },
+        { status: 403 }
+      );
+    }
 
     switch (type) {
       case "PUBLIC_APPLY_MEMBERSHIP": {

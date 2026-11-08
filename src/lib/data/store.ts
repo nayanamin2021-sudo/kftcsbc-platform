@@ -54,25 +54,23 @@ function upgradeStateWithOfficialLeadership(parsed: DatabaseState): {
 } {
   let changed = false;
 
-  if (parsed.settings?.campusAddress === "Sample Campus Road, Bangladesh") {
-    parsed.settings.campusAddress = INITIAL_DATABASE_STATE.settings.campusAddress;
-    parsed.settings.contactEmail = INITIAL_DATABASE_STATE.settings.contactEmail;
-    parsed.settings.officeHours = INITIAL_DATABASE_STATE.settings.officeHours;
-    changed = true;
-  }
-
   const hasOfficialPatron = parsed.committee?.some(
     (c) => c.fullName === "Zakir Hossain Kamal"
   );
-  if (!hasOfficialPatron) {
+  const sayemIsExecutive = parsed.committee?.some(
+    (c) => c.fullName === "Abu Sayem" && c.tier === "executive"
+  );
+  const hasOfficialContact =
+    parsed.settings?.contactEmail === "kftictcontents@gmail.com" &&
+    parsed.settings?.contactPhone === "01309139452";
+
+  if (!hasOfficialPatron || !sayemIsExecutive || !hasOfficialContact) {
     parsed.committee = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.committee));
     parsed.admins = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.admins));
     parsed.invitations = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.invitations));
     parsed.settings = {
       ...parsed.settings,
-      tagline: INITIAL_DATABASE_STATE.settings.tagline,
-      aboutIntro: INITIAL_DATABASE_STATE.settings.aboutIntro,
-      advisorNote: INITIAL_DATABASE_STATE.settings.advisorNote,
+      ...JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.settings)),
     };
     changed = true;
   }

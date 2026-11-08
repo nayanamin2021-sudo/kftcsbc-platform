@@ -471,14 +471,26 @@ export default function CommitteePage() {
                   key={member.id}
                   className="flex flex-col items-start gap-[12px] rounded-[12px] bg-white p-[24px] border border-[#dce1e7] transition-all duration-200 hover:border-[#14243b]/30 hover:shadow-md"
                 >
-                  <div className="flex h-[84px] w-full items-center justify-between rounded-[8px] bg-[#dde6df] px-[20px]">
-                    <span className="text-[28px] leading-[36px] font-bold text-[#14243b]">
-                      {member.initials}
-                    </span>
-                    <span className="rounded-full bg-white/90 px-3 py-1 text-[12px] font-bold text-[#14243b]">
-                      {member.sessionTerm}
-                    </span>
-                  </div>
+                  {member.photoUrl ? (
+                    <div className="relative h-[300px] w-full overflow-hidden rounded-[10px] border border-[#dce1e7] bg-[#dde6df]">
+                      <Image
+                        src={member.photoUrl}
+                        alt={`${member.fullName}, ${member.roleTitle}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 384px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex h-[84px] w-full items-center justify-between rounded-[8px] bg-[#dde6df] px-[20px]">
+                      <span className="text-[28px] leading-[36px] font-bold text-[#14243b]">
+                        {member.initials}
+                      </span>
+                      <span className="rounded-full bg-white/90 px-3 py-1 text-[12px] font-bold text-[#14243b]">
+                        {member.sessionTerm}
+                      </span>
+                    </div>
+                  )}
                   <h3 className="text-[20px] leading-[28px] font-semibold text-[#14243b] pt-1">
                     {member.fullName}
                   </h3>
@@ -512,8 +524,16 @@ export default function CommitteePage() {
             Questions, workshop proposals, and inter-school collaborations can reach our Boys&apos; Wing &amp; Girls&apos; Wing Executive Board and Faculty Advisors through our official campus desk.
           </p>
           <p className="text-[15px] leading-[22px] font-bold text-[#14243b]">
-            {settings.contactEmail || "businessclub@kftcollegiate.edu.bd"} ·{" "}
-            {settings.officeRoom || "Room 204, Academic Block B"}
+            {settings.contactEmail || "kftictcontents@gmail.com"} ·{" "}
+            {settings.contactPhone || "01309139452"} ·{" "}
+            <a
+              href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[#1e40af]"
+            >
+              {settings.campusAddress || "KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur."}
+            </a>
           </p>
           <div className="flex flex-wrap items-start gap-[12px]">
             <Button href="/contact" variant="primary" className="w-[220px]">

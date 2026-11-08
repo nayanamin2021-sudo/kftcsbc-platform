@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, ShieldAlert, RotateCcw, ChevronDown, ExternalLink, LogOut } from "lucide-react";
+import { Menu, ShieldAlert, RotateCcw, ChevronDown, ExternalLink, LogOut, Lock } from "lucide-react";
 import { useAdminWorkspace } from "./AdminWorkspaceContext";
 import {
   AdminModule,
@@ -293,6 +293,51 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  const isAdminPanelLocked =
+    process.env.NEXT_PUBLIC_ADMIN_UNLOCKED !== "true";
+
+  if (isAdminPanelLocked) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#f8f7f3] px-4 py-12 text-[#14243b]">
+        <div className="w-full max-w-[520px] rounded-[16px] border border-[#dce1e7] bg-white p-8 sm:p-10 shadow-sm text-center space-y-6">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#dce1e7] bg-[#f8f7f3] p-1.5 shadow-2xs">
+            <Image
+              src="/images/kftcsbc/club-logo.png"
+              alt="KFTCS Business Club Official Seal"
+              width={72}
+              height={72}
+              className="h-full w-full rounded-full object-contain"
+              priority
+            />
+          </div>
+
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#14243b] px-3.5 py-1 text-[12px] font-bold uppercase tracking-wider text-[#d5ac50]">
+            <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Workspace Locked</span>
+          </div>
+
+          <div className="space-y-2">
+            <h1 className="text-[26px] leading-[34px] font-bold text-[#14243b]">
+              Committee Workspace is Currently Closed
+            </h1>
+            <p className="text-[15px] leading-[24px] text-[#475569]">
+              The KFTCSBC Admin Panel has been temporarily locked by club administration. Public events, resources, committee directory, and student membership applications remain open on the main website.
+            </p>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button href="/" variant="primary" className="w-full sm:w-[220px]">
+              ← Back to Public Website
+            </Button>
+            <Button href="/contact" variant="secondary" className="w-full sm:w-[180px]">
+              Contact Club Desk
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Auth routes render standalone without the workspace sidebar shell
   const isAuthRoute =

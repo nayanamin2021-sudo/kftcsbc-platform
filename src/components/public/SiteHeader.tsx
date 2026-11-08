@@ -103,10 +103,24 @@ export function SiteHeader() {
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-white/85">
-            <span className="inline-flex items-center gap-1.5">
+            <a
+              href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-white hover:underline"
+            >
               <Clock className="h-3.5 w-3.5 text-[#d5ac50]" aria-hidden="true" />
-              <span>Sun–Thu · 3:15 PM – 4:45 PM · Room B-204</span>
+              <span>KFT Collegiate School · Dhakirgaon, Matlab South, Chandpur</span>
+            </a>
+            <span aria-hidden="true" className="text-white/30">
+              |
             </span>
+            <a
+              href="tel:01309139452"
+              className="inline-flex min-h-[26px] items-center font-semibold text-white/90 hover:text-white hover:underline"
+            >
+              01309139452
+            </a>
             <span aria-hidden="true" className="text-white/30">
               |
             </span>
@@ -115,15 +129,6 @@ export function SiteHeader() {
               className="inline-flex min-h-[26px] items-center font-semibold text-[#d5ac50] hover:underline"
             >
               Track Application
-            </Link>
-            <span aria-hidden="true" className="text-white/30">
-              |
-            </span>
-            <Link
-              href="/admin"
-              className="inline-flex min-h-[26px] items-center font-semibold text-white/90 hover:text-white hover:underline"
-            >
-              Committee Workspace
             </Link>
           </div>
         </div>

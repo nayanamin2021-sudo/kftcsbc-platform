@@ -134,7 +134,7 @@ export default function ResourcesPage() {
     </div>
     <div class="footer">
       <span>KFTCSBC Resource Library (Session 2026–27)</span>
-      <span>Room 204, Academic Block B · businessclub@kftcollegiate.edu.bd</span>
+      <span>KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur · kftictcontents@gmail.com</span>
     </div>
   </div>
 </body>

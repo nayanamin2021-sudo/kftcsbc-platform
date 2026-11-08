@@ -4,18 +4,29 @@ import { createSupabaseAdminClient } from "./client";
 const WORKSPACE_ROW_ID = "primary";
 
 /**
- * Fetches the authoritative workspace state from Supabase Postgres if configured.
+ * Fetches the authoritative workspace state from Supabase Postgres if configured,
+ * with a strict 2,500ms timeout so cold starts never hang page loads.
  */
 export async function fetchWorkspaceStateFromSupabase(): Promise<DatabaseState | null> {
   const supabase = createSupabaseAdminClient();
   if (!supabase) return null;
 
   try {
-    const { data, error } = await supabase
+    const queryPromise = supabase
       .from("kftcsbc_workspace_state")
       .select("state")
       .eq("id", WORKSPACE_ROW_ID)
       .maybeSingle();
+
+    const timeoutPromise = new Promise<{ data: null; error: { message: string } }>(
+      (resolve) =>
+        setTimeout(
+          () => resolve({ data: null, error: { message: "Supabase fetch timeout" } }),
+          2500
+        )
+    );
+
+    const { data, error } = await Promise.race([queryPromise, timeoutPromise]);
 
     if (error || !data?.state) {
       return null;

@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: "Can I update or correct my application?",
-    a: "Yes. Contact businessclub@kftcollegiate.edu.bd from the email you used to apply and quote your KFT-APP reference code.",
+    a: "Yes. Contact kftictcontents@gmail.com (or call 01309139452) from the email you used to apply and quote your KFT-APP reference code.",
   },
 ];
 

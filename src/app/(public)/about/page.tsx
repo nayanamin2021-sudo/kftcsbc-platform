@@ -245,7 +245,7 @@ export default function AboutPage() {
                 Empowering Future Entrepreneurs.
               </h2>
               <p className="text-[16px] leading-[26px] font-normal text-[#475569]">
-                Established in 2026 under Chief Patron <strong>Zakir Hossain Kamal</strong>, KFTCSBC is the official student Business Club of KFT Collegiate School in Dhaka, Bangladesh—built around three core pillars: <strong>Workshop · Leadership · Networking</strong>.
+                Established in 2026 under Chief Patron <strong>Zakir Hossain Kamal</strong>, KFTCSBC is the official student Business Club of KFT Collegiate School in Dhakirgaon, Matlab South, Chandpur—built around three core pillars: <strong>Workshop · Leadership · Networking</strong>.
               </p>
               <p className="text-[16px] leading-[26px] font-normal text-[#475569]">
                 To ensure inclusive representation and dedicated mentorship across campus, KFTCSBC operates with coordinated <strong>Boys&apos; Wing</strong> (guided by Faculty Advisor <strong>Abdul Nur</strong> &amp; Moderator <strong>Rakibul Hossain</strong>, led by President <strong>Ifaz Molla</strong> &amp; Secretary <strong>Ataur Rahman</strong>) and <strong>Girls&apos; Wing</strong> (guided by Faculty Advisor <strong>Jahanara Akter Situ</strong> &amp; Moderator <strong>Md Amit Hasan</strong>, led by President <strong>Sonia Rehman</strong> &amp; Secretary <strong>Nusrat Jahan Niha</strong>), alongside Central Media Operations led by <strong>Abu Sayem</strong>.

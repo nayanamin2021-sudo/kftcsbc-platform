@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, AlertCircle, MapPin, Clock, Mail, ShieldCheck } from "lucide-react";
+import { CheckCircle2, AlertCircle, MapPin, Clock, Mail, Phone, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { EnquiryRecord, WorkspaceSettings } from "@/lib/data/types";
 import { INITIAL_DATABASE_STATE } from "@/lib/data/seed";
 import { Button } from "@/components/ui/Button";
@@ -193,37 +193,66 @@ export default function ContactPage() {
               </div>
 
               <div className="w-full rounded-[12px] border border-[#dce1e7] bg-[#f8f7f3]/70 p-6 space-y-5">
-                <div className="flex items-start gap-3.5 min-w-0">
-                  <Mail className="h-5 w-5 text-[#14243b] shrink-0 mt-1" aria-hidden="true" />
-                  <div className="min-w-0">
-                    <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
-                      OFFICIAL CLUB DESK EMAIL
-                    </p>
-                    <p className="mt-1 text-[16px] sm:text-[18px] leading-[26px] font-bold text-[#14243b] break-all">
-                      {settings.contactEmail || "businessclub@kftcollegiate.edu.bd"}
-                    </p>
-                    <p className="mt-0.5 text-[13px] leading-[20px] text-[#475569]">
-                      Monitored by the Head of Communications &amp; General Secretary.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="h-px w-full bg-[#dce1e7]" />
-
                 <div className="flex items-start gap-3.5">
                   <MapPin className="h-5 w-5 text-[#14243b] shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
                       CAMPUS LOCATION
                     </p>
-                    <p className="mt-1 text-[16px] leading-[24px] font-semibold text-[#14243b]">
+                    <p className="mt-1 text-[16px] leading-[24px] font-bold text-[#14243b]">
                       KFT Collegiate School
                     </p>
                     <p className="text-[14px] leading-[22px] text-[#475569]">
-                      {settings.officeRoom || "Room 204, Academic Block B"} · First Floor
+                      Dhakirgaon, Matlab South, Chandpur.
                     </p>
-                    <p className="text-[14px] leading-[22px] text-[#475569]">
-                      Department of Business Studies Wing, Dhaka
+                    <a
+                      href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1.5 inline-flex items-center gap-1 text-[13px] font-bold text-[#1e40af] hover:underline"
+                    >
+                      <span>Open in Google Maps</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-[#dce1e7]" />
+
+                <div className="flex items-start gap-3.5">
+                  <Phone className="h-5 w-5 text-[#14243b] shrink-0 mt-1" aria-hidden="true" />
+                  <div>
+                    <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
+                      OFFICIAL CONTACT PHONE
+                    </p>
+                    <a
+                      href={`tel:${settings.contactPhone || "01309139452"}`}
+                      className="mt-1 inline-block text-[16px] sm:text-[18px] leading-[26px] font-bold text-[#14243b] hover:underline"
+                    >
+                      {settings.contactPhone || "01309139452"}
+                    </a>
+                    <p className="mt-0.5 text-[13px] leading-[20px] text-[#475569]">
+                      Available during active school and club hours.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-[#dce1e7]" />
+
+                <div className="flex items-start gap-3.5 min-w-0">
+                  <Mail className="h-5 w-5 text-[#14243b] shrink-0 mt-1" aria-hidden="true" />
+                  <div className="min-w-0">
+                    <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
+                      OFFICIAL CLUB EMAIL
+                    </p>
+                    <a
+                      href={`mailto:${settings.contactEmail || "kftictcontents@gmail.com"}`}
+                      className="mt-1 inline-block text-[16px] sm:text-[18px] leading-[26px] font-bold text-[#14243b] hover:underline break-all"
+                    >
+                      {settings.contactEmail || "kftictcontents@gmail.com"}
+                    </a>
+                    <p className="mt-0.5 text-[13px] leading-[20px] text-[#475569]">
+                      Monitored by the KFTCSBC Executive Board &amp; Faculty Moderators.
                     </p>
                   </div>
                 </div>
@@ -240,7 +269,7 @@ export default function ContactPage() {
                       {settings.officeHours || "Sunday – Thursday · 3:15 PM – 4:45 PM BDT"}
                     </p>
                     <p className="text-[13px] leading-[20px] text-[#475569]">
-                      Typical email response within 2 school days during active academic terms.
+                      Typical response within 2 school days during active academic terms.
                     </p>
                   </div>
                 </div>
@@ -481,7 +510,7 @@ export default function ContactPage() {
                   </h2>
                 </div>
                 <span className="rounded-full bg-[#dde6df] px-3 py-1 text-[12px] font-bold text-[#14243b]">
-                  Dhaka Campus
+                  Dhakirgaon, Matlab South, Chandpur
                 </span>
               </div>
 
@@ -540,13 +569,24 @@ export default function ContactPage() {
                 Current KFT Collegiate School students can drop by{" "}
                 <strong>Room 204 (Academic Block B)</strong> during afternoon club hours. Visiting parents, alumni mentors, and guest speakers are asked to check in at the Main Gate reception desk 15 minutes prior to scheduled sessions.
               </p>
-              <button
-                type="button"
-                onClick={() => setDirectionsOpen(true)}
-                className="bg-[#14243b] text-white hover:bg-[#253851] font-bold text-[14px] leading-[22px] rounded-[8px] min-h-[48px] px-[20px] py-[12px] w-full sm:w-[260px] inline-flex items-center justify-center transition-colors cursor-pointer"
-              >
-                View step-by-step directions
-              </button>
+              <div className="flex flex-wrap gap-3 w-full">
+                <a
+                  href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#14243b] text-white hover:bg-[#253851] font-bold text-[14px] leading-[22px] rounded-[8px] min-h-[48px] px-[20px] py-[12px] inline-flex items-center justify-center gap-2 transition-colors"
+                >
+                  <span>Open Google Maps</span>
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setDirectionsOpen(true)}
+                  className="bg-white text-[#14243b] border border-[#14243b] hover:bg-[#e9eff7] font-bold text-[14px] leading-[22px] rounded-[8px] min-h-[48px] px-[20px] py-[12px] inline-flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  Campus venue guide
+                </button>
+              </div>
             </div>
           </div>
         </div>

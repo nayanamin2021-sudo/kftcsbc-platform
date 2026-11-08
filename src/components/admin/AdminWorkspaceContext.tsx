@@ -41,15 +41,22 @@ export function AdminWorkspaceProvider({
   const [activeAdminId, setActiveAdminId] = useState<string>("admin-owner-1");
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
-  const refreshDb = useCallback(async () => {
+  const refreshDb = useCallback(async (bypassCache = false) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4000);
     try {
-      const res = await fetch("/api/workspace", { cache: "no-store" });
+      const res = await fetch("/api/workspace", {
+        cache: bypassCache ? "no-store" : "default",
+        signal: controller.signal,
+      });
       const data = await res.json();
       if (data?.ok && data.db) {
         setDb(data.db);
       }
     } catch {
       // Keep local seed fallback
+    } finally {
+      clearTimeout(timer);
     }
   }, []);
 
@@ -104,7 +111,7 @@ export function AdminWorkspaceProvider({
       });
       const data = await res.json();
       if (data.ok) {
-        await refreshDb();
+        await refreshDb(true);
       }
       return data;
     } catch (err) {

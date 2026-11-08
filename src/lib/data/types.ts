@@ -279,6 +279,7 @@ export interface WorkspaceSettings {
   recruitmentAutoNotice: boolean;
   recruitmentBannerNote: string;
   contactEmail: string;
+  contactPhone?: string;
   campusAddress: string;
   officeRoom: string;
   officeHours: string;

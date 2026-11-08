@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Clock, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { MapPin, Mail, Phone, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { useAdminWorkspace } from "@/components/admin/AdminWorkspaceContext";
 
 const clubLinks = [
@@ -77,41 +77,54 @@ export function SiteFooter() {
               </span>
             </div>
 
-            <div className="mt-1 flex flex-col gap-1.5 text-[13px] leading-[20px] text-white/75 max-w-[420px]">
+            <div className="mt-1 flex flex-col gap-2 text-[13px] leading-[20px] text-white/75 max-w-[420px]">
               <div className="flex items-start gap-2.5">
                 <MapPin
-                  className="h-4 w-4 text-[#d5ac50]/85 shrink-0 mt-0.5"
+                  className="h-4 w-4 text-[#d5ac50] shrink-0 mt-0.5"
                   aria-hidden="true"
                 />
-                <span>
-                  {settings.campusAddress ||
-                    "Academic Block B, Room 204 • KFT Collegiate School Campus, Dhaka"}
-                </span>
+                <div className="flex flex-col">
+                  <span className="font-semibold text-white/90">
+                    KFT Collegiate School
+                  </span>
+                  <a
+                    href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-white/80 hover:text-[#d5ac50] hover:underline transition-colors"
+                  >
+                    <span>Dhakirgaon, Matlab South, Chandpur.</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Phone
+                  className="h-4 w-4 text-[#d5ac50] shrink-0"
+                  aria-hidden="true"
+                />
+                <a
+                  href={`tel:${settings.contactPhone || "01309139452"}`}
+                  className="inline-flex min-h-[26px] items-center font-semibold text-white/85 hover:text-white hover:underline transition-colors"
+                >
+                  {settings.contactPhone || "01309139452"}
+                </a>
               </div>
 
               <div className="flex items-center gap-2.5 min-w-0">
                 <Mail
-                  className="h-4 w-4 text-[#d5ac50]/85 shrink-0"
+                  className="h-4 w-4 text-[#d5ac50] shrink-0"
                   aria-hidden="true"
                 />
                 <a
                   href={`mailto:${
-                    settings.contactEmail || "businessclub@kftcollegiate.edu.bd"
+                    settings.contactEmail || "kftictcontents@gmail.com"
                   }`}
                   className="inline-flex min-h-[26px] items-center text-white/85 hover:text-white hover:underline break-all transition-colors"
                 >
-                  {settings.contactEmail || "businessclub@kftcollegiate.edu.bd"}
+                  {settings.contactEmail || "kftictcontents@gmail.com"}
                 </a>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <Clock
-                  className="h-4 w-4 text-[#d5ac50]/85 shrink-0"
-                  aria-hidden="true"
-                />
-                <span className="text-white/75">
-                  Club Desk Hours: Sun–Thu, 3:15 PM – 4:45 PM
-                </span>
               </div>
             </div>
           </div>
@@ -173,13 +186,15 @@ export function SiteFooter() {
                   </li>
                 ))}
                 <li>
-                  <Link
-                    href="/admin"
+                  <a
+                    href="https://maps.app.goo.gl/k6vEUZCmnpZdvWQR7"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex min-h-[28px] items-center gap-1.5 text-[14px] leading-[20px] font-semibold text-[#d5ac50] hover:text-[#e5c168] transition-colors"
                   >
-                    <span>Committee Workspace</span>
+                    <span>Google Maps Location</span>
                     <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>

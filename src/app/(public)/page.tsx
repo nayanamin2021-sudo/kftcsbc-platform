@@ -63,7 +63,7 @@ export default function PublicHomePage() {
               </Button>
             </div>
             <p className="text-[14px] leading-[22px] font-normal text-[#475569]">
-              Open to Classes IX–XII across Business Studies, Science &amp; Humanities at KFT Collegiate School, Dhaka.
+              Open to Classes IX–XII across Boys&apos; Wing &amp; Girls&apos; Wing at KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur.
             </p>
           </div>
 

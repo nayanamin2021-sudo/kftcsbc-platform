@@ -344,9 +344,9 @@ export const INITIAL_DATABASE_STATE: DatabaseState = {
       ],
       speakers: [
         {
-          name: "Dr. Farhan Ahmed",
-          role: "Faculty Adviser",
-          bio: "Opening address and faculty evaluation lead.",
+          name: "Zakir Hossain Kamal",
+          role: "Patron, KFTCS Business Club",
+          bio: "Opening address and institutional patronage.",
         },
       ],
       dateLabel: "18 Sep 2026",
@@ -361,9 +361,9 @@ export const INITIAL_DATABASE_STATE: DatabaseState = {
       isPast: true,
       workflowStatus: "published",
       authorId: "admin-publisher-1",
-      authorName: "Arif Hasan",
+      authorName: "Sonia Rehman",
       approvedBy: "admin-owner-1",
-      approvedByName: "Nusrat Jahan",
+      approvedByName: "Ifaz Molla",
       updatedAt: "2026-09-20T10:00:00Z",
       version: 1,
     },
@@ -388,8 +388,8 @@ export const INITIAL_DATABASE_STATE: DatabaseState = {
       ],
       speakers: [
         {
-          name: "Nusrat Jahan",
-          role: "President, KFTCSBC",
+          name: "Sonia Rehman",
+          role: "President — Girls' Wing, KFTCSBC",
           bio: "Session lead.",
         },
       ],
@@ -1511,7 +1511,7 @@ export const INITIAL_DATABASE_STATE: DatabaseState = {
       fullName: "Abu Sayem",
       initials: "AS",
       roleTitle: "Social Media Manager",
-      tier: "working",
+      tier: "executive",
       wing: "Central",
       quote: "Sharing the stories, milestones, and creative energy of KFTCSBC with our campus community.",
       sessionTerm: "2026–27",
@@ -1660,17 +1660,18 @@ export const INITIAL_DATABASE_STATE: DatabaseState = {
     recruitmentAutoNotice: true,
     recruitmentBannerNote:
       "Membership applications for the 2026–27 session are open to Class IX – XII students (Boys' & Girls' Wings).",
-    contactEmail: "businessclub@kftcollegiate.edu.bd",
-    campusAddress: "Academic Block B, Room 204 • KFT Collegiate School Campus, Dhaka",
-    officeRoom: "Room 204, Academic Block B",
+    contactEmail: "kftictcontents@gmail.com",
+    contactPhone: "01309139452",
+    campusAddress: "KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur.",
+    officeRoom: "Dhakirgaon, Matlab South, Chandpur",
     officeHours: "Sunday – Thursday · 3:15 PM – 4:45 PM BDT",
     advisorNote:
       "Patron: Zakir Hossain Kamal · Faculty Advisors: Abdul Nur (Boys' Wing) & Jahanara Akter Situ (Girls' Wing) · Moderators: Rakibul Hossain & Md Amit Hasan",
     defaultLanguage: "EN",
     requireIndependentReview: true,
     retentionMonths: 24,
-    updatedAt: "2026-11-08T12:00:00Z",
-    version: 2,
+    updatedAt: "2026-11-08T19:10:00Z",
+    version: 3,
   },
 
   activityLogs: [
