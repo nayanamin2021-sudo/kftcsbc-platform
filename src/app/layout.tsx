@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   },
   description:
     "Empowering Future Entrepreneurs — Workshop, Leadership, and Networking at KFT Collegiate School Business Club (KFTCSBC, Estd. 2026).",
+  icons: {
+    icon: [
+      { url: "/favicon.png?v=3", type: "image/png", sizes: "64x64" },
+      { url: "/apple-touch-icon.png?v=3", type: "image/png", sizes: "180x180" },
+    ],
+    shortcut: "/favicon.png?v=3",
+    apple: "/apple-touch-icon.png?v=3",
+  },
   openGraph: {
     title: "KFTCSBC | KFT Collegiate School Business Club",
     description:
