@@ -77,11 +77,9 @@ export default function CommitteePage() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-center w-full">
           <div className="lg:col-span-8 flex flex-col items-start gap-[16px]">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#d5ac50]/50 bg-[#14243b] px-3 sm:px-3.5 py-1.5 text-[10.5px] sm:text-[12px] leading-[16px] sm:leading-[18px] font-bold text-[#d5ac50]">
-              <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              <span className="truncate sm:whitespace-normal">
-                OFFICIAL LEADERSHIP DIRECTORY · ESTD. 2026
-              </span>
+            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#d5ac50]/50 bg-[#14243b] px-3.5 py-1 text-[12px] leading-[18px] font-bold text-[#d5ac50]">
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>OFFICIAL LEADERSHIP DIRECTORY · ESTD. 2026</span>
             </div>
             <h1 className="text-[38px] leading-[46px] sm:text-[52px] sm:leading-[60px] font-bold text-[#14243b] tracking-tight">
               Different strengths.{" "}
@@ -157,7 +155,7 @@ export default function CommitteePage() {
             <div
               role="group"
               aria-label="Select committee session year"
-              className="inline-flex max-w-full rounded-[8px] border border-[#dce1e7] bg-[#f8f7f3] p-1"
+              className="inline-flex rounded-[8px] border border-[#dce1e7] bg-[#f8f7f3] p-1"
             >
               {(["2026–27", "2025–26"] as const).map((term) => {
                 const active = selectedSession === term;
@@ -170,7 +168,7 @@ export default function CommitteePage() {
                       setSelectedSession(term);
                       setWingFilter("all");
                     }}
-                    className={`min-h-[38px] rounded-[6px] px-2.5 sm:px-3.5 text-[12px] sm:text-[13px] leading-[18px] sm:leading-[20px] font-bold transition-colors cursor-pointer whitespace-nowrap ${
+                    className={`min-h-[38px] rounded-[6px] px-3.5 text-[13px] leading-[20px] font-bold transition-colors cursor-pointer ${
                       active
                         ? "bg-[#14243b] text-white shadow-2xs"
                         : "text-[#475569] hover:text-[#14243b]"
@@ -207,14 +205,12 @@ export default function CommitteePage() {
 
                 {/* Patron Quote & Institutional Vision */}
                 <div className="lg:col-span-8 flex flex-col items-start gap-5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex max-w-full items-center gap-1.5 rounded-full bg-[#d5ac50] px-3 sm:px-3.5 py-1 text-[10.5px] sm:text-[12px] font-extrabold uppercase tracking-wider text-[#14243b]">
-                      <Award className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                      <span className="truncate sm:whitespace-normal">
-                        CHIEF PATRON · KFTCS BUSINESS CLUB
-                      </span>
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d5ac50] px-3.5 py-1 text-[12px] font-extrabold uppercase tracking-wider text-[#14243b]">
+                      <Award className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span>CHIEF PATRON · KFTCS BUSINESS CLUB</span>
                     </span>
-                    <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] sm:text-[12px] font-semibold text-white/90">
+                    <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[12px] font-semibold text-white/90">
                       Session {patron.sessionTerm}
                     </span>
                   </div>

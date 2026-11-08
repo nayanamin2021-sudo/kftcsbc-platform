@@ -34,15 +34,15 @@ export default function PublicHomePage() {
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-12">
           {/* Hero copy */}
           <div className="flex flex-col items-start gap-[24px] lg:col-span-6">
-            <div className="inline-flex max-w-full items-center gap-2 sm:gap-2.5 rounded-2xl sm:rounded-full border border-[#dce1e7] bg-white px-3 sm:px-3.5 py-1.5 shadow-2xs">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#dce1e7] bg-white px-3.5 py-1.5 shadow-2xs">
               <Image
                 src="/images/kftcsbc/club-logo.png"
                 alt="KFTCSBC Official Seal"
                 width={22}
                 height={22}
-                className="h-[22px] w-[22px] shrink-0 rounded-full object-contain"
+                className="h-[22px] w-[22px] rounded-full object-contain"
               />
-              <p className="text-[11px] sm:text-[12px] leading-[16px] sm:leading-[18px] font-bold tracking-wider text-[#14243b]">
+              <p className="text-[12px] leading-[18px] font-bold tracking-wider text-[#14243b]">
                 KFTCSBC · EMPOWERING FUTURE ENTREPRENEURS · ESTD. 2026
               </p>
             </div>
