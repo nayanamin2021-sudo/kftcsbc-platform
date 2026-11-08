@@ -260,6 +260,7 @@ export default function AboutPage() {
                     src="/images/kftcsbc/club-logo.png"
                     alt="KFTCS Business Club Official Seal"
                     fill
+                    loading="eager"
                     sizes="80px"
                     className="object-contain p-0.5"
                   />

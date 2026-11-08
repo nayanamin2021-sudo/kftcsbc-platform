@@ -486,6 +486,7 @@ export default function PublicHomePage() {
                     src="/images/kftcsbc/zakir-hossain-kamal.jpg"
                     alt="Zakir Hossain Kamal, Patron"
                     fill
+                    loading="eager"
                     sizes="80px"
                     className="object-cover object-top"
                   />
@@ -545,6 +546,7 @@ export default function PublicHomePage() {
                         src={mentor.photo}
                         alt={mentor.name}
                         fill
+                        loading="eager"
                         sizes="56px"
                         className="object-cover object-top"
                       />
@@ -614,6 +616,7 @@ export default function PublicHomePage() {
                       src={leader.photo}
                       alt={`${leader.name}, ${leader.role}`}
                       fill
+                      loading="eager"
                       sizes="(max-width: 768px) 100vw, 240px"
                       className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
                     />

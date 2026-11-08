@@ -283,6 +283,7 @@ export default function CommitteePage() {
                         src={mentor.photoUrl}
                         alt={`${mentor.fullName}, ${mentor.roleTitle}`}
                         fill
+                        loading="eager"
                         sizes="(max-width: 640px) 100vw, 210px"
                         className="object-cover object-top"
                       />
@@ -374,6 +375,7 @@ export default function CommitteePage() {
                         src={exec.photoUrl}
                         alt={`${exec.fullName}, ${exec.roleTitle}`}
                         fill
+                        loading="eager"
                         sizes="(max-width: 768px) 100vw, 384px"
                         className="object-cover object-top transition-transform duration-300 hover:scale-[1.02]"
                       />
