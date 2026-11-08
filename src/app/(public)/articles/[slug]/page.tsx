@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, User, CheckCircle2, BookOpen } from "lucide-react";
-import { getDb } from "@/lib/data/store";
+import { ensureSupabaseHydrated } from "@/lib/data/store";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
 
@@ -15,7 +15,7 @@ export default async function ArticleDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const db = getDb();
+  const db = await ensureSupabaseHydrated();
   const article = db.articles.find(
     (a) => a.slug === slug || a.id === slug
   );

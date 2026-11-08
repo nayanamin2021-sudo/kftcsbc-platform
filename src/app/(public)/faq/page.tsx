@@ -154,11 +154,11 @@ export default function PublicFaqPage() {
                 <div className="space-y-1.5 text-[13px] text-[#14243b] pt-1 border-t border-[#14243b]/10">
                   <p className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-[#14243b] shrink-0" aria-hidden="true" />
-                    <span>Academic Block B, Room 204</span>
+                    <span>KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur.</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-[#14243b] shrink-0" aria-hidden="true" />
-                    <span>Sun–Thu · 3:15 PM – 4:45 PM</span>
+                    <span>Sun–Thu · 3:15 PM – 4:45 PM · 01309139452</span>
                   </p>
                 </div>
                 <div className="flex flex-col gap-2.5 pt-2">

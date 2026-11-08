@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import { getDb } from "@/lib/data/store";
+import { ensureSupabaseHydrated } from "@/lib/data/store";
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
@@ -15,7 +15,7 @@ export default async function ResourceDetailPage({
 }) {
   const { slug } = await params;
   const cleanSlug = slug.replace(/\.(pdf|mp4)$/i, "");
-  const db = getDb();
+  const db = await ensureSupabaseHydrated();
   const resource = db.resources.find(
     (r) =>
       r.slug === cleanSlug ||
@@ -108,8 +108,8 @@ export default async function ResourceDetailPage({
                 Prepared by {resource.authorName} · KFTCSBC Editorial Team
               </div>
               <p className="text-[14px] text-[#475569]">
-                Need printed copies for your study group? Visit Room 204
-                (Academic Block B) during club hours.
+                Need printed copies for your study group? Visit the KFTCSBC Club
+                Desk at KFT Collegiate School, Dhakirgaon, Matlab South, Chandpur.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

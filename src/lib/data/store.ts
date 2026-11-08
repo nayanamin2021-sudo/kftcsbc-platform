@@ -63,11 +63,27 @@ function upgradeStateWithOfficialLeadership(parsed: DatabaseState): {
   const hasOfficialContact =
     parsed.settings?.contactEmail === "kftictcontents@gmail.com" &&
     parsed.settings?.contactPhone === "01309139452";
+  const hasLegacyAuthors =
+    parsed.articles?.some(
+      (a) => a.authorName === "Arif Hasan" || a.authorName === "Maliha Rahman"
+    ) ||
+    parsed.resources?.some(
+      (r) => r.authorName === "Arif Hasan" || r.authorName === "Safa Chowdhury"
+    );
 
-  if (!hasOfficialPatron || !sayemIsExecutive || !hasOfficialContact) {
+  if (
+    !hasOfficialPatron ||
+    !sayemIsExecutive ||
+    !hasOfficialContact ||
+    hasLegacyAuthors
+  ) {
     parsed.committee = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.committee));
     parsed.admins = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.admins));
     parsed.invitations = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.invitations));
+    parsed.events = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.events));
+    parsed.resources = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.resources));
+    parsed.articles = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.articles));
+    parsed.gallery = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.gallery));
     parsed.settings = {
       ...parsed.settings,
       ...JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.settings)),

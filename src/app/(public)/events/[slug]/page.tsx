@@ -512,7 +512,7 @@ export default function EventDetailPage() {
                 type="email"
                 value={email}
                 onChange={setEmail}
-                placeholder="you@student.kftcsbc.example"
+                placeholder="student@gmail.com"
                 required
                 autoComplete="email"
               />
@@ -522,7 +522,7 @@ export default function EventDetailPage() {
                 type="tel"
                 value={phone}
                 onChange={setPhone}
-                placeholder="+880 17..."
+                placeholder="01XXXXXXXXX"
                 required
                 autoComplete="tel"
               />
