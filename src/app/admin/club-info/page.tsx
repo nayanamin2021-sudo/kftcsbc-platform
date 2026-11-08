@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Building2,
   Users,
@@ -309,23 +310,52 @@ export default function AdminClubInfoPage() {
                 key={m.id}
                 className="rounded-[16px] border border-[#dce1e7] bg-white p-5 space-y-3 flex flex-col justify-between"
               >
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between gap-2">
                     <StatusBadge
                       tone={m.sessionTerm === "2026–27" ? "success" : "neutral"}
                     >
                       {m.sessionTerm} · {m.tier}
                     </StatusBadge>
-                    <span className="text-[12px] font-bold text-[#14243b]">
-                      {m.roleTitle}
-                    </span>
+                    {m.wing && (
+                      <span className="rounded-md bg-[#f8f7f3] border border-[#dce1e7] px-2 py-0.5 text-[11px] font-bold text-[#14243b]">
+                        {m.wing}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-[17px] font-bold text-[#14243b]">
-                    {m.fullName} ({m.initials})
-                  </h3>
-                  <p className="text-[12px] text-[#526174]">
-                    {m.classDepartment}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    {m.photoUrl ? (
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[8px] border border-[#dce1e7] bg-[#f8f7f3]">
+                        <Image
+                          src={m.photoUrl}
+                          alt={m.fullName}
+                          fill
+                          sizes="48px"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-[#dde6df] text-[14px] font-bold text-[#14243b]">
+                        {m.initials}
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="text-[16px] font-bold text-[#14243b]">
+                        {m.fullName}
+                      </h3>
+                      <p className="text-[12px] font-semibold text-[#1e40af]">
+                        {m.roleTitle}
+                      </p>
+                      <p className="text-[11px] text-[#526174]">
+                        {m.classDepartment}
+                      </p>
+                    </div>
+                  </div>
+                  {m.quote && (
+                    <p className="rounded-[8px] border-l-2 border-[#d5ac50] bg-[#f8f7f3] px-2.5 py-1.5 text-[12px] italic text-[#14243b]">
+                      &ldquo;{m.quote}&rdquo;
+                    </p>
+                  )}
                   <p className="text-[13px] text-[#475569]">{m.bio}</p>
                 </div>
 

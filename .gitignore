@@ -13,8 +13,9 @@
 # production
 /build
 
-# local data cache
+# local data cache & raw source uploads
 /.data/
+/imges/
 
 # misc
 .DS_Store

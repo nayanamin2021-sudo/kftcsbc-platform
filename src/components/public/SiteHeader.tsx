@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Search, X, Sparkles, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -135,18 +136,22 @@ export function SiteHeader() {
           className="flex items-center gap-3 shrink-0 group rounded-[8px]"
           aria-label="KFTCSBC Business Club — Home"
         >
-          <span
-            aria-hidden="true"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] bg-[#14243b] text-[15px] font-extrabold tracking-tight text-[#d5ac50] shadow-xs transition-transform group-hover:scale-[1.03]"
-          >
-            KFT
+          <span className="relative inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-white border border-[#dce1e7] p-0.5 shadow-xs transition-transform group-hover:scale-[1.04]">
+            <Image
+              src="/images/kftcsbc/club-logo.png"
+              alt="KFTCS Business Club Official Seal"
+              width={40}
+              height={40}
+              className="h-full w-full rounded-full object-contain"
+              priority
+            />
           </span>
           <span className="flex flex-col items-start">
-            <span className="text-[20px] leading-[26px] font-semibold tracking-tight text-[#14243b]">
+            <span className="text-[20px] leading-[24px] font-bold tracking-tight text-[#14243b]">
               KFTCSBC
             </span>
-            <span className="text-[11px] leading-[16px] font-bold tracking-[0.06em] text-[#475569]">
-              BUSINESS CLUB
+            <span className="text-[11px] leading-[15px] font-bold tracking-[0.06em] text-[#475569]">
+              KFTCS BUSINESS CLUB
             </span>
           </span>
         </Link>

@@ -17,19 +17,21 @@ const notoBengali = Noto_Sans_Bengali({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kftcsbc-platform.vercel.app"),
   title: {
     default: "KFTCSBC | KFT Collegiate School Business Club",
     template: "%s | KFTCSBC",
   },
   description:
-    "Explore entrepreneurship, business learning, and student collaboration at KFT Collegiate School Business Club (KFTCSBC).",
+    "Empowering Future Entrepreneurs — Workshop, Leadership, and Networking at KFT Collegiate School Business Club (KFTCSBC, Estd. 2026).",
   openGraph: {
     title: "KFTCSBC | KFT Collegiate School Business Club",
     description:
-      "Student-led entrepreneurship, communication, finance, and business leadership at KFT Collegiate School.",
+      "Empowering Future Entrepreneurs across Boys' Wing & Girls' Wing at KFT Collegiate School Business Club (Estd. 2026).",
     type: "website",
     locale: "en_BD",
     siteName: "KFT Collegiate School Business Club",
+    images: ["/images/kftcsbc/club-logo.png"],
   },
 };
 

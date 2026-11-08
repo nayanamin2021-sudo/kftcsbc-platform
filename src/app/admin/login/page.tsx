@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
   Lock,
@@ -20,7 +21,7 @@ export default function AdminLoginPage() {
   const router = useRouter();
   const { db, setAdminById } = useAdminWorkspace();
 
-  const [email, setEmail] = useState("nusrat.jahan@kftcsbc.example");
+  const [email, setEmail] = useState("ifaz.molla@kftcsbc.example");
   const [password, setPassword] = useState("••••••••••••");
   const [authError, setAuthError] = useState<string | undefined>();
   const [suspendedNotice, setSuspendedNotice] = useState(false);
@@ -58,8 +59,14 @@ export default function AdminLoginPage() {
         <div className="lg:col-span-6 rounded-[12px] border border-[#dce1e7] bg-white p-7 sm:p-10 space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[#14243b] text-white font-extrabold text-[14px]">
-                KFT
+              <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white border border-[#dce1e7] p-0.5 shadow-xs">
+                <Image
+                  src="/images/kftcsbc/club-logo.png"
+                  alt="KFTCSBC Official Seal"
+                  width={40}
+                  height={40}
+                  className="h-full w-full rounded-full object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-[18px] font-bold text-[#14243b]">

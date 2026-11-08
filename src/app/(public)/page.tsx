@@ -34,10 +34,16 @@ export default function PublicHomePage() {
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-12">
           {/* Hero copy */}
           <div className="flex flex-col items-start gap-[24px] lg:col-span-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#dce1e7] bg-white px-3.5 py-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#d5ac50]" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#dce1e7] bg-white px-3.5 py-1.5 shadow-2xs">
+              <Image
+                src="/images/kftcsbc/club-logo.png"
+                alt="KFTCSBC Official Seal"
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px] rounded-full object-contain"
+              />
               <p className="text-[12px] leading-[18px] font-bold tracking-wider text-[#14243b]">
-                KFTCSBC / LEARN. CONNECT. CREATE.
+                KFTCSBC · EMPOWERING FUTURE ENTREPRENEURS · ESTD. 2026
               </p>
             </div>
             <h1 className="text-[40px] leading-[48px] sm:text-[56px] sm:leading-[64px] font-bold text-[#14243b]">
@@ -46,7 +52,7 @@ export default function PublicHomePage() {
               with curious minds.
             </h1>
             <p className="text-[16px] leading-[26px] font-normal text-[#475569] max-w-[552px]">
-              Explore business, build practical skills and turn ideas into opportunities with the KFT Collegiate School Business Club.
+              Explore business, build practical skills through <strong>Workshop · Leadership · Networking</strong>, and turn ideas into opportunities with the KFT Collegiate School Business Club.
             </p>
             <div className="flex flex-wrap items-start gap-[12px]">
               <Button href="/membership" variant="primary" className="w-[182px]">
@@ -449,83 +455,182 @@ export default function PublicHomePage() {
 
       {/* 07 / Committee */}
       <section className="w-full bg-white border-t border-[#dce1e7]">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-[40px] px-6 py-16 lg:p-[120px]">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-[36px] px-6 py-16 lg:p-[120px]">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-[16px] w-full">
-            <div className="flex flex-col items-start gap-[12px]">
+            <div className="flex flex-col items-start gap-[10px]">
               <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
-                THE PEOPLE
+                OFFICIAL LEADERSHIP · SESSION 2026–27
               </p>
               <h2 className="text-[32px] leading-[40px] font-bold text-[#14243b]">
-                Meet the team behind KFTCSBC.
+                Meet the leadership behind KFTCSBC.
               </h2>
+              <p className="text-[15px] leading-[24px] text-[#475569] max-w-[740px]">
+                Guided by Chief Patron <strong>Zakir Hossain Kamal</strong> and our Boys&apos; Wing &amp; Girls&apos; Wing Faculty Advisors, Moderators, and Student Executive Board.
+              </p>
             </div>
             <Link
               href="/committee"
               className="inline-flex min-h-[44px] min-w-[44px] items-center text-[14px] leading-[22px] font-bold text-[#14243b] hover:underline"
             >
-              Meet the committee →
+              View full 10-member directory →
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-[24px] md:grid-cols-3 w-full">
-            {/* Faculty Adviser */}
-            <div className="flex flex-col items-start gap-[14px] rounded-[12px] border border-[#dce1e7] bg-white p-[20px]">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[8px] bg-[#dde6df]">
-                <Image
-                  src="/images/figma/portrait-farhan.png"
-                  alt="Dr. Farhan Ahmed, Faculty Adviser"
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 768px) 100vw, 384px"
-                  className="object-cover"
-                />
+          {/* Patron & Faculty Guidance Highlight */}
+          <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-12 w-full">
+            {/* Chief Patron Spotlight */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col justify-between gap-5 rounded-[16px] bg-[#14243b] p-6 text-white border border-[#253851]">
+              <div className="flex items-center gap-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[12px] border-2 border-[#d5ac50]/60 bg-[#dde6df]">
+                  <Image
+                    src="/images/kftcsbc/zakir-hossain-kamal.jpg"
+                    alt="Zakir Hossain Kamal, Patron"
+                    fill
+                    sizes="80px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <span className="inline-block rounded-full bg-[#d5ac50] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#14243b]">
+                    CHIEF PATRON
+                  </span>
+                  <h3 className="mt-1 text-[22px] leading-[28px] font-bold text-white">
+                    Zakir Hossain Kamal
+                  </h3>
+                  <p className="text-[13px] leading-[18px] text-[#d5ac50]">
+                    Patron · KFTCS Business Club
+                  </p>
+                </div>
               </div>
-              <h3 className="text-[22px] leading-[30px] font-semibold text-[#14243b]">
-                Dr. Farhan Ahmed
-              </h3>
-              <p className="text-[14px] leading-[22px] font-normal text-[#475569]">
-                Faculty Adviser · Department of Business Studies
-              </p>
+              <blockquote className="rounded-[10px] border-l-3 border-[#d5ac50] bg-white/8 p-4 text-[14px] leading-[22px] italic text-white/95">
+                &ldquo;Business studies builds not just better businesses, but better thinkers for a stronger society.&rdquo;
+              </blockquote>
             </div>
 
-            {/* President */}
-            <div className="flex flex-col items-start gap-[14px] rounded-[12px] border border-[#dce1e7] bg-white p-[20px]">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[8px] bg-[#dde6df]">
-                <Image
-                  src="/images/figma/portrait-nusrat.png"
-                  alt="Nusrat Jahan, President"
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 768px) 100vw, 384px"
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-[22px] leading-[30px] font-semibold text-[#14243b]">
-                Nusrat Jahan
-              </h3>
-              <p className="text-[14px] leading-[22px] font-normal text-[#475569]">
-                President · Session 2026–27
-              </p>
+            {/* 4 Faculty Advisors & Wing Moderators */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  name: "Abdul Nur",
+                  role: "Faculty Advisor · Boys' Wing",
+                  quote: "Guiding young minds today, building future leaders.",
+                  photo: "/images/kftcsbc/abdul-nur.png",
+                },
+                {
+                  name: "Jahanara Akter Situ",
+                  role: "Faculty Advisor · Girls' Wing",
+                  quote: "Empowered women create stronger communities and build a better tomorrow.",
+                  photo: "/images/kftcsbc/jahanara-akter-situ.png",
+                },
+                {
+                  name: "Rakibul Hossain",
+                  role: "Moderator · Boys' Wing",
+                  quote: "Better boys, stronger leaders, bigger tomorrow.",
+                  photo: "/images/kftcsbc/rakibul-hossain.png",
+                },
+                {
+                  name: "Md Amit Hasan",
+                  role: "Moderator · Girls' Wing",
+                  quote: "Empowering young women to dream, lead and create change.",
+                  photo: "/images/kftcsbc/md-amit-hasan.png",
+                },
+              ].map((mentor) => (
+                <div
+                  key={mentor.name}
+                  className="flex flex-col gap-2.5 rounded-[12px] border border-[#dce1e7] bg-[#f8f7f3]/70 p-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[10px] border border-[#dce1e7] bg-white">
+                      <Image
+                        src={mentor.photo}
+                        alt={mentor.name}
+                        fill
+                        sizes="56px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-[16px] leading-[22px] font-bold text-[#14243b]">
+                        {mentor.name}
+                      </h4>
+                      <p className="text-[12px] leading-[16px] font-semibold text-[#1e40af]">
+                        {mentor.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-[12px] leading-[18px] italic text-[#475569]">
+                    &ldquo;{mentor.quote}&rdquo;
+                  </p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* General Secretary */}
-            <div className="flex flex-col items-start gap-[14px] rounded-[12px] border border-[#dce1e7] bg-white p-[20px]">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[8px] bg-[#dde6df]">
-                <Image
-                  src="/images/figma/portrait-arif.png"
-                  alt="Arif Hasan, General Secretary"
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 768px) 100vw, 384px"
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-[22px] leading-[30px] font-semibold text-[#14243b]">
-                Arif Hasan
-              </h3>
-              <p className="text-[14px] leading-[22px] font-normal text-[#475569]">
-                General Secretary · Session 2026–27
-              </p>
+          {/* 5 Student Executive Leaders */}
+          <div className="w-full pt-2">
+            <p className="mb-4 text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
+              STUDENT EXECUTIVE BOARD · BOYS&apos; WING, GIRLS&apos; WING &amp; MEDIA
+            </p>
+            <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-5 w-full">
+              {[
+                {
+                  name: "Ifaz Molla",
+                  role: "President — Boys' Wing",
+                  wing: "Boys' Wing",
+                  photo: "/images/kftcsbc/ifaz-molla.png",
+                },
+                {
+                  name: "Sonia Rehman",
+                  role: "President — Girls' Wing",
+                  wing: "Girls' Wing",
+                  photo: "/images/kftcsbc/sonia-rehman.png",
+                },
+                {
+                  name: "Ataur Rahman",
+                  role: "Secretary — Boys' Wing",
+                  wing: "Boys' Wing",
+                  photo: "/images/kftcsbc/ataur-rahman.png",
+                },
+                {
+                  name: "Nusrat Jahan Niha",
+                  role: "Secretary — Girls' Wing",
+                  wing: "Girls' Wing",
+                  photo: "/images/kftcsbc/nusrat-jahan-niha.png",
+                },
+                {
+                  name: "Abu Sayem",
+                  role: "Social Media Manager",
+                  wing: "Central Media",
+                  photo: "/images/kftcsbc/abu-sayem.png",
+                },
+              ].map((leader) => (
+                <Link
+                  key={leader.name}
+                  href="/committee"
+                  className="group flex flex-col items-start gap-2.5 rounded-[12px] border border-[#dce1e7] bg-white p-3.5 transition-all hover:border-[#14243b]/40 hover:shadow-md"
+                >
+                  <div className="relative h-[220px] w-full overflow-hidden rounded-[8px] bg-[#dde6df]">
+                    <Image
+                      src={leader.photo}
+                      alt={`${leader.name}, ${leader.role}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 240px"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <span className="inline-block rounded-md bg-[#f8f7f3] border border-[#dce1e7] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#475569]">
+                    {leader.wing}
+                  </span>
+                  <div>
+                    <h3 className="text-[17px] leading-[22px] font-bold text-[#14243b] group-hover:underline">
+                      {leader.name}
+                    </h3>
+                    <p className="text-[13px] leading-[18px] font-medium text-[#475569]">
+                      {leader.role}
+                    </p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { MapPin, Mail, Clock, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail, Clock, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { useAdminWorkspace } from "@/components/admin/AdminWorkspaceContext";
 
 const clubLinks = [
@@ -43,23 +44,38 @@ export function SiteFooter() {
           <div className="lg:col-span-5 flex flex-col gap-3.5 items-start">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 group rounded-[6px]"
+              className="inline-flex items-center gap-3.5 group rounded-[8px]"
               aria-label="KFTCSBC — Home"
             >
-              <span
-                aria-hidden="true"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-[8px] bg-[#182c47] border border-[#d5ac50]/45 text-[13px] font-extrabold tracking-tight text-[#d5ac50] transition-colors group-hover:border-[#d5ac50]"
-              >
-                KFT
+              <span className="relative inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-sm ring-2 ring-[#d5ac50]/45 transition-all group-hover:ring-[#d5ac50]">
+                <Image
+                  src="/images/kftcsbc/club-logo.png"
+                  alt="KFTCS Business Club Official Seal"
+                  width={42}
+                  height={42}
+                  className="h-full w-full rounded-full object-contain"
+                />
               </span>
-              <span className="text-[20px] leading-[24px] font-bold tracking-tight text-white">
-                {settings.shortName || "KFTCSBC"}
+              <span className="flex flex-col">
+                <span className="text-[20px] leading-[24px] font-bold tracking-tight text-white">
+                  {settings.shortName || "KFTCSBC"}
+                </span>
+                <span className="text-[11px] leading-[15px] font-bold uppercase tracking-[0.08em] text-[#d5ac50]">
+                  Estd. 2026 · Empowering Future Entrepreneurs
+                </span>
               </span>
             </Link>
 
-            <p className="text-[14px] leading-[22px] text-white/75 max-w-[400px]">
-              {settings.clubName || "KFT Collegiate School Business Club"} — a faculty-supervised student society for Classes IX–XII fostering entrepreneurship, financial literacy, and practical leadership.
+            <p className="text-[14px] leading-[22px] text-white/75 max-w-[420px]">
+              {settings.clubName || "KFT Collegiate School Business Club"} — a faculty-supervised student society operating across Boys&apos; Wing &amp; Girls&apos; Wing to foster entrepreneurship, workshop excellence, leadership, and networking.
             </p>
+
+            <div className="inline-flex items-center gap-2 rounded-[8px] border border-white/10 bg-[#182c47]/80 px-3 py-1.5 text-[12px] leading-[18px] text-white/85">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#d5ac50] shrink-0" aria-hidden="true" />
+              <span>
+                Patron: <strong className="text-white">Zakir Hossain Kamal</strong> · Boys&apos; &amp; Girls&apos; Wing Advisors
+              </span>
+            </div>
 
             <div className="mt-1 flex flex-col gap-1.5 text-[13px] leading-[20px] text-white/75 max-w-[420px]">
               <div className="flex items-start gap-2.5">

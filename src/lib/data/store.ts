@@ -48,6 +48,51 @@ function cloneState(state: DatabaseState): DatabaseState {
   return JSON.parse(JSON.stringify(state));
 }
 
+function upgradeStateWithOfficialLeadership(parsed: DatabaseState): {
+  state: DatabaseState;
+  changed: boolean;
+} {
+  let changed = false;
+
+  if (parsed.settings?.campusAddress === "Sample Campus Road, Bangladesh") {
+    parsed.settings.campusAddress = INITIAL_DATABASE_STATE.settings.campusAddress;
+    parsed.settings.contactEmail = INITIAL_DATABASE_STATE.settings.contactEmail;
+    parsed.settings.officeHours = INITIAL_DATABASE_STATE.settings.officeHours;
+    changed = true;
+  }
+
+  const hasOfficialPatron = parsed.committee?.some(
+    (c) => c.fullName === "Zakir Hossain Kamal"
+  );
+  if (!hasOfficialPatron) {
+    parsed.committee = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.committee));
+    parsed.admins = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.admins));
+    parsed.invitations = JSON.parse(JSON.stringify(INITIAL_DATABASE_STATE.invitations));
+    parsed.settings = {
+      ...parsed.settings,
+      tagline: INITIAL_DATABASE_STATE.settings.tagline,
+      aboutIntro: INITIAL_DATABASE_STATE.settings.aboutIntro,
+      advisorNote: INITIAL_DATABASE_STATE.settings.advisorNote,
+    };
+    changed = true;
+  }
+
+  for (const seedArt of INITIAL_DATABASE_STATE.articles) {
+    if (!parsed.articles?.some((a) => a.id === seedArt.id)) {
+      parsed.articles = [...(parsed.articles || []), seedArt];
+      changed = true;
+    }
+  }
+  for (const seedAlb of INITIAL_DATABASE_STATE.gallery) {
+    if (!parsed.gallery?.some((g) => g.id === seedAlb.id)) {
+      parsed.gallery = [...(parsed.gallery || []), seedAlb];
+      changed = true;
+    }
+  }
+
+  return { state: parsed, changed };
+}
+
 export async function ensureSupabaseHydrated(): Promise<DatabaseState> {
   if (!isSupabaseAdminConfigured()) {
     return getDb();
@@ -55,8 +100,13 @@ export async function ensureSupabaseHydrated(): Promise<DatabaseState> {
   if (!supabaseHydrated) {
     const remoteState = await fetchWorkspaceStateFromSupabase();
     if (remoteState) {
-      memoryCache = cloneState(remoteState);
+      const { state: upgradedRemote, changed } =
+        upgradeStateWithOfficialLeadership(cloneState(remoteState));
+      memoryCache = cloneState(upgradedRemote);
       supabaseHydrated = true;
+      if (changed) {
+        await syncWorkspaceStateToSupabase(memoryCache);
+      }
       try {
         if (!fs.existsSync(DATA_DIR)) {
           fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -93,30 +143,12 @@ export function getDb(): DatabaseState {
     if (fs.existsSync(DATA_FILE)) {
       const raw = fs.readFileSync(DATA_FILE, "utf-8");
       const parsed = JSON.parse(raw) as DatabaseState;
-      let needsSave = false;
-      if (parsed.settings?.campusAddress === "Sample Campus Road, Bangladesh") {
-        parsed.settings.campusAddress = INITIAL_DATABASE_STATE.settings.campusAddress;
-        parsed.settings.contactEmail = INITIAL_DATABASE_STATE.settings.contactEmail;
-        parsed.settings.officeHours = INITIAL_DATABASE_STATE.settings.officeHours;
-        needsSave = true;
-      }
-      for (const seedArt of INITIAL_DATABASE_STATE.articles) {
-        if (!parsed.articles?.some((a) => a.id === seedArt.id)) {
-          parsed.articles = [...(parsed.articles || []), seedArt];
-          needsSave = true;
-        }
-      }
-      for (const seedAlb of INITIAL_DATABASE_STATE.gallery) {
-        if (!parsed.gallery?.some((g) => g.id === seedAlb.id)) {
-          parsed.gallery = [...(parsed.gallery || []), seedAlb];
-          needsSave = true;
-        }
-      }
-      memoryCache = parsed;
-      if (needsSave) {
+      const { state: upgraded, changed } = upgradeStateWithOfficialLeadership(parsed);
+      memoryCache = upgraded;
+      if (changed) {
         saveDb(memoryCache);
       }
-      return cloneState(parsed);
+      return cloneState(upgraded);
     }
   } catch {
     // Fallback to initial seed state

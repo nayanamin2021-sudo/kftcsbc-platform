@@ -231,21 +231,60 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 04 / School connection */}
-      <section className="w-full bg-[#dde6df]">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-[24px] px-6 py-[64px] lg:px-[120px]">
-          <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
-            04 / OUR SCHOOL COMMUNITY
-          </p>
-          <h2 className="text-[32px] leading-[40px] font-bold text-[#14243b]">
-            Rooted in KFT. Open to possibility.
-          </h2>
-          <p className="text-[16px] leading-[26px] font-normal text-[#475569] max-w-[850px]">
-            KFTCSBC is the official student Business Club of KFT Collegiate School in Dhaka, Bangladesh. Student initiative and faculty guidance come together to support practical learning and ethical participation within the school calendar.
-          </p>
-          <p className="text-[16px] leading-[26px] font-normal text-[#475569] max-w-[850px]">
-            Our faculty advisers in the Department of Business Studies and our student executive committee work side by side to ensure every activity is inclusive, well-supervised, and aligned with academic schedules.
-          </p>
+      {/* 04 / Official Seal & Dual-Wing Governance */}
+      <section className="w-full bg-[#dde6df] border-y border-[#dce1e7]">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-[36px] px-6 py-[64px] lg:px-[120px]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-center w-full">
+            <div className="lg:col-span-7 flex flex-col items-start gap-4">
+              <p className="text-[12px] leading-[18px] font-bold uppercase tracking-wider text-[#475569]">
+                04 / OUR INSTITUTIONAL CHARTER &amp; DUAL-WING STRUCTURE
+              </p>
+              <h2 className="text-[32px] leading-[40px] font-bold text-[#14243b]">
+                Rooted in KFT.{" "}
+                <br className="hidden sm:inline" />
+                Empowering Future Entrepreneurs.
+              </h2>
+              <p className="text-[16px] leading-[26px] font-normal text-[#475569]">
+                Established in 2026 under Chief Patron <strong>Zakir Hossain Kamal</strong>, KFTCSBC is the official student Business Club of KFT Collegiate School in Dhaka, Bangladesh—built around three core pillars: <strong>Workshop · Leadership · Networking</strong>.
+              </p>
+              <p className="text-[16px] leading-[26px] font-normal text-[#475569]">
+                To ensure inclusive representation and dedicated mentorship across campus, KFTCSBC operates with coordinated <strong>Boys&apos; Wing</strong> (guided by Faculty Advisor <strong>Abdul Nur</strong> &amp; Moderator <strong>Rakibul Hossain</strong>, led by President <strong>Ifaz Molla</strong> &amp; Secretary <strong>Ataur Rahman</strong>) and <strong>Girls&apos; Wing</strong> (guided by Faculty Advisor <strong>Jahanara Akter Situ</strong> &amp; Moderator <strong>Md Amit Hasan</strong>, led by President <strong>Sonia Rehman</strong> &amp; Secretary <strong>Nusrat Jahan Niha</strong>), alongside Central Media Operations led by <strong>Abu Sayem</strong>.
+              </p>
+            </div>
+
+            {/* Official Seal & Patron Quote Card */}
+            <div className="lg:col-span-5 flex flex-col gap-5 rounded-[16px] border border-[#dce1e7] bg-white p-6 shadow-xs">
+              <div className="flex items-center gap-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-[#dce1e7] bg-[#f8f7f3] p-1">
+                  <Image
+                    src="/images/kftcsbc/club-logo.png"
+                    alt="KFTCS Business Club Official Seal"
+                    fill
+                    sizes="80px"
+                    className="object-contain p-0.5"
+                  />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#9a6b16]">
+                    Official Club Emblem · Estd. 2026
+                  </span>
+                  <h3 className="text-[18px] leading-[24px] font-bold text-[#14243b]">
+                    KFTCS Business Club
+                  </h3>
+                  <p className="text-[13px] font-semibold text-[#475569]">
+                    Workshop · Leadership · Networking
+                  </p>
+                </div>
+              </div>
+
+              <blockquote className="rounded-[10px] border-l-3 border-[#d5ac50] bg-[#f8f7f3] p-4 text-[14px] leading-[22px] italic text-[#14243b]">
+                &ldquo;Business studies builds not just better businesses, but better thinkers for a stronger society.&rdquo;
+                <footer className="mt-1.5 not-italic text-[12px] font-bold text-[#475569]">
+                  — Zakir Hossain Kamal, Patron, KFTCS Business Club
+                </footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
       </section>
 

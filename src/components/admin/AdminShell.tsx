@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, ShieldAlert, RotateCcw, ChevronDown, ExternalLink, LogOut } from "lucide-react";
 import { useAdminWorkspace } from "./AdminWorkspaceContext";
@@ -331,14 +332,25 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       {/* Brand (52:82) */}
       <Link
         href="/admin"
-        className="flex flex-col gap-[4px] items-start w-[200px]"
+        className="flex items-center gap-3 w-[200px]"
       >
-        <p className="font-bold text-[24px] leading-[32px] text-white w-[200px]">
-          KFTCSBC
-        </p>
-        <p className="font-normal text-[12px] leading-[18px] text-[#d5ac50] w-[200px]">
-          COMMITTEE WORKSPACE
-        </p>
+        <span className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white p-0.5 ring-2 ring-[#d5ac50]/50">
+          <Image
+            src="/images/kftcsbc/club-logo.png"
+            alt="KFTCSBC Official Seal"
+            width={36}
+            height={36}
+            className="h-full w-full rounded-full object-contain"
+          />
+        </span>
+        <span className="flex flex-col">
+          <span className="font-bold text-[20px] leading-[24px] text-white">
+            KFTCSBC
+          </span>
+          <span className="font-semibold text-[10px] leading-[14px] tracking-wider text-[#d5ac50]">
+            COMMITTEE WORKSPACE
+          </span>
+        </span>
       </Link>
 
       {/* Group / Workspace (52:85) */}

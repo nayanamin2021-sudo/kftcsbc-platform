@@ -239,7 +239,9 @@ export interface CommitteeMemberRecord {
   fullName: string;
   initials: string;
   roleTitle: string;
-  tier: "adviser" | "executive" | "working";
+  tier: "patron" | "adviser" | "moderator" | "executive" | "working";
+  wing?: "Central" | "Boys' Wing" | "Girls' Wing";
+  quote?: string;
   sessionTerm: "2026–27" | "2025–26";
   classDepartment: string;
   bio: string;
